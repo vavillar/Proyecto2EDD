@@ -84,7 +84,6 @@ public class PantallaJuegoController implements Initializable {
     }
 
 
-
     private void iniciarJuego() {
         tablero.limpiar();
         lblResultado.setVisible(false);

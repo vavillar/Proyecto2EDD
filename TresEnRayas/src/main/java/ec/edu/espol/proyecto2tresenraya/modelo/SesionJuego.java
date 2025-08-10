@@ -1,6 +1,8 @@
 package ec.edu.espol.proyecto2tresenraya.modelo;
 
-public class SesionJuego {
+import java.io.Serializable;
+
+public class SesionJuego implements Serializable{
 
     private static char simboloJugador = 'X'; // Valor por defecto
     private static String quienInicia = "Jugador 1"; // Valor por defecto
