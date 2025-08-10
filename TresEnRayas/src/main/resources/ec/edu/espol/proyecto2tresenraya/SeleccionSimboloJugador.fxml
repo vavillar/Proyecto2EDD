@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0"
+            prefHeight="325.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ec.edu.espol.proyecto2tresenraya.controllers.SeleccionSimboloJugadorController">
+
+   <center>
+      <VBox prefHeight="248.0" prefWidth="580.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="42.0" prefWidth="560.0">
+               <children>
+                  <Label prefHeight="33.0" prefWidth="171.0" text="JUGADOR #">
+                     <font>
+                        <Font name="Bookman Old Style" size="27.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblNumeroJugador" prefHeight="33.0" prefWidth="42.0" text="##">
+                     <font>
+                        <Font name="Bookman Old Style" size="27.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="128.0" prefWidth="540.0">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+               <children>
+                  <Label text="Elige tu símbolo:">
+                     <font>
+                        <Font name="Berlin Sans FB Bold" size="15.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="30.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Button fx:id="btncirculo" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@imagenes_recursos/O%20tres%20en%20raya.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btncruz" mnemonicParsing="false" prefHeight="120.0" prefWidth="120.0">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@imagenes_recursos/X%20tres%20en%20raya.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox prefHeight="43.0" prefWidth="560.0">
+               <children>
+                  <Label text="Elige quién inicia el juego:">
+                     <font>
+                        <Font name="Berlin Sans FB Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox fx:id="cbiniciaJuego" prefHeight="25.0" prefWidth="182.0">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </ChoiceBox>
+               </children>
+            </HBox>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </BorderPane.margin>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+   </center>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="53.0" prefWidth="590.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnJugar" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="28.0" prefWidth="104.0" text="JUGAR">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <font>
+                  <Font name="Bell MT Bold" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>
