@@ -86,4 +86,14 @@ public class Tablero {
             if (i < 2) System.out.println("  -+-+-");
         }
     }
+
+    public char[][] getCeldas() {
+        return celdas;
+    }
+
+    public void setCeldas(char[][] celdas) {
+        this.celdas = celdas;
+    }
+    
+    
 }

@@ -11,15 +11,10 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" 
-            xmlns="http://javafx.com/javafx/23.0.1" 
-            xmlns:fx="http://javafx.com/fxml/1" 
-            fx:controller="ec.edu.espol.proyecto2tresenraya.controllers.PantallaJuegoController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyecto2tresenraya.controllers.PantallaJuegoController">
 
     <center>
-        <GridPane alignment="CENTER" gridLinesVisible="true" maxHeight="1.7976931348623157E308" 
-                  maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" 
-                  prefHeight="150.0" prefWidth="250.0" BorderPane.alignment="CENTER">
+        <GridPane alignment="CENTER" gridLinesVisible="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="150.0" prefWidth="250.0" BorderPane.alignment="CENTER">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="33.33" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -34,37 +29,15 @@
                 <Insets bottom="10.0" left="50.0" right="50.0" top="10.0" />
             </BorderPane.margin>
             <children>
-                <Button fx:id="btn00" alignment="CENTER" contentDisplay="CENTER" 
-                        maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" 
-                        mnemonicParsing="false" prefHeight="75.0" prefWidth="150.0" style="-fx-font-size: 24;" />
-                <Button fx:id="btn01" alignment="CENTER" maxHeight="1.7976931348623157E308" 
-                        maxWidth="1.7976931348623157E308" mnemonicParsing="false" 
-                        prefHeight="75.0" prefWidth="150.0" style="-fx-font-size: 24;" GridPane.columnIndex="1" />
-                <Button fx:id="btn02" alignment="CENTER" maxHeight="1.7976931348623157E308" 
-                        maxWidth="1.7976931348623157E308" mnemonicParsing="false" 
-                        prefHeight="75.0" prefWidth="150.0" style="-fx-font-size: 24;" GridPane.columnIndex="2" />
-                <Button fx:id="btn10" alignment="CENTER" maxHeight="1.7976931348623157E308" 
-                        maxWidth="1.7976931348623157E308" mnemonicParsing="false" 
-                        prefHeight="75.0" prefWidth="150.0" style="-fx-font-size: 24;" GridPane.rowIndex="1" />
-                <Button fx:id="btn11" alignment="CENTER" maxHeight="1.7976931348623157E308" 
-                        maxWidth="1.7976931348623157E308" mnemonicParsing="false" 
-                        prefHeight="75.0" prefWidth="150.0" style="-fx-font-size: 24;" 
-                        GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                <Button fx:id="btn12" alignment="CENTER" maxHeight="1.7976931348623157E308" 
-                        maxWidth="1.7976931348623157E308" mnemonicParsing="false" 
-                        prefHeight="75.0" prefWidth="150.0" style="-fx-font-size: 24;" 
-                        GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                <Button fx:id="btn20" alignment="CENTER" maxHeight="1.7976931348623157E308" 
-                        maxWidth="1.7976931348623157E308" mnemonicParsing="false" 
-                        prefHeight="75.0" prefWidth="150.0" style="-fx-font-size: 24;" GridPane.rowIndex="2" />
-                <Button fx:id="btn21" alignment="CENTER" maxHeight="1.7976931348623157E308" 
-                        maxWidth="1.7976931348623157E308" mnemonicParsing="false" 
-                        prefHeight="75.0" prefWidth="150.0" style="-fx-font-size: 24;" 
-                        GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                <Button fx:id="btn22" alignment="CENTER" maxHeight="1.7976931348623157E308" 
-                        maxWidth="1.7976931348623157E308" mnemonicParsing="false" 
-                        prefHeight="75.0" prefWidth="150.0" style="-fx-font-size: 24;" 
-                        GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                <Button fx:id="btn00" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" prefWidth="150.0" style="-fx-font-size: 24;" />
+                <Button fx:id="btn01" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" prefWidth="150.0" style="-fx-font-size: 24;" GridPane.columnIndex="1" />
+                <Button fx:id="btn02" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" prefWidth="150.0" style="-fx-font-size: 24;" GridPane.columnIndex="2" />
+                <Button fx:id="btn10" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" prefWidth="150.0" style="-fx-font-size: 24;" GridPane.rowIndex="1" />
+                <Button fx:id="btn11" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" prefWidth="150.0" style="-fx-font-size: 24;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Button fx:id="btn12" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" prefWidth="150.0" style="-fx-font-size: 24;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                <Button fx:id="btn20" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" prefWidth="150.0" style="-fx-font-size: 24;" GridPane.rowIndex="2" />
+                <Button fx:id="btn21" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" prefWidth="150.0" style="-fx-font-size: 24;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Button fx:id="btn22" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="75.0" prefWidth="150.0" style="-fx-font-size: 24;" GridPane.columnIndex="2" GridPane.rowIndex="2" />
             </children>
         </GridPane>
     </center>
@@ -73,12 +46,17 @@
         <HBox alignment="CENTER" prefHeight="61.0" prefWidth="600.0" BorderPane.alignment="CENTER">
             <children>
                 <Label fx:id="lblResultado" prefHeight="22.0" prefWidth="105.0" text="Resultado" />
-                <Button fx:id="btnReinicio" mnemonicParsing="false" onAction="#reiniciarJuego" 
-                        prefHeight="37.0" prefWidth="128.0" text="Reiniciar juego">
+                <Button fx:id="btnReinicio" mnemonicParsing="false" onAction="#reiniciarJuego" prefHeight="37.0" prefWidth="104.0" text="Reiniciar juego">
                     <HBox.margin>
                         <Insets left="30.0" />
                     </HBox.margin>
                 </Button>
+            <Button fx:id="btnGuardar" mnemonicParsing="false" onAction="#GuardarJuego" prefHeight="37.0" prefWidth="104.0" text="Guardar Juego">
+               <HBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnCargar" mnemonicParsing="false" onAction="#CargarJuego" prefHeight="37.0" prefWidth="104.0" text="Cargar Juego" />
             </children>
         </HBox>
     </bottom>
@@ -86,8 +64,7 @@
     <top>
         <VBox alignment="CENTER" prefHeight="87.0" prefWidth="600.0" BorderPane.alignment="CENTER">
             <children>
-                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="255.0" 
-                       text="Juego Tres en raya" textAlignment="CENTER">
+                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="255.0" text="Juego Tres en raya" textAlignment="CENTER">
                     <font>
                         <Font name="Bookshelf Symbol 7" size="20.0" />
                     </font>
@@ -99,8 +76,7 @@
                                 <Font name="Bell MT" size="19.0" />
                             </font>
                         </Label>
-                        <Label fx:id="lblTurno" contentDisplay="CENTER" prefHeight="22.0" 
-                               prefWidth="195.0" text="IA/Nombre">
+                        <Label fx:id="lblTurno" contentDisplay="CENTER" prefHeight="22.0" prefWidth="195.0" text="IA/Nombre">
                             <font>
                                 <Font name="Bell MT" size="19.0" />
                             </font>

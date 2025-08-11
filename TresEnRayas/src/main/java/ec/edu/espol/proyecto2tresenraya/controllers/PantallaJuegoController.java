@@ -5,8 +5,14 @@
 package ec.edu.espol.proyecto2tresenraya.controllers;
 
 import ec.edu.espol.proyecto2tresenraya.ia.MinMax;
+import ec.edu.espol.proyecto2tresenraya.modelo.EstadoPartida;
 import ec.edu.espol.proyecto2tresenraya.modelo.SesionJuego;
 import ec.edu.espol.proyecto2tresenraya.modelo.Tablero;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -32,6 +38,10 @@ public class PantallaJuegoController implements Initializable {
     @FXML
     private Button btnReinicio;
     @FXML
+    private Button btnGuardar;
+    @FXML
+    private Button btnCargar;
+    @FXML
     private Button btn00;
     @FXML
     private Button btn01;
@@ -49,6 +59,7 @@ public class PantallaJuegoController implements Initializable {
     private Button btn21;
     @FXML
     private Button btn22;
+    
 
     // Lógica del juego
     private Tablero tablero;
@@ -89,6 +100,7 @@ public class PantallaJuegoController implements Initializable {
         lblResultado.setVisible(false);
 
         if ("IA".equalsIgnoreCase(quienInicia)) {
+            actualizarBotones(true);
             turnoActual = simboloIA;
             lblTurno.setText("IA");
 
@@ -130,7 +142,7 @@ public class PantallaJuegoController implements Initializable {
             if (!verificarFin()) {
                 turnoActual = simboloIA;
                 lblTurno.setText("IA");
-
+                actualizarBotones(true);
                 // Esperar antes de que la IA haga su jugada
                 PauseTransition pausa = new PauseTransition(Duration.seconds(1));
                 pausa.setOnFinished(e -> moverIA());
@@ -163,6 +175,12 @@ public class PantallaJuegoController implements Initializable {
         }
     }
 
+    private void actualizarBotones(boolean estado){
+        btnReinicio.setDisable(estado);
+        btnGuardar.setDisable(estado);
+        btnCargar.setDisable(estado);
+    }
+    
     private void moverIA() {
         if (!hayGanador() && !tablero.estaCompleto()) {
             int[] mejorMovimiento = MinMax.obtenerMejorMovimiento(tablero, simboloIA, simboloJugador);
@@ -179,6 +197,7 @@ public class PantallaJuegoController implements Initializable {
                 turnoActual = simboloJugador;
                 lblTurno.setText("Jugador");
             }
+            actualizarBotones(false);
         }
     }
 
@@ -215,5 +234,53 @@ public class PantallaJuegoController implements Initializable {
             }
         }
         iniciarJuego();
+        actualizarBotones(false);
     }
+    
+    @FXML
+    private void CargarJuego() {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("partida.dat"))) {
+        EstadoPartida estadoCargado = (EstadoPartida) ois.readObject();
+        this.tablero.setCeldas(estadoCargado.getCeldas());
+        this.turnoActual = estadoCargado.getTurnoActual();
+        actualizarBotonesTablero(); 
+        lblTurno.setText(turnoActual == simboloJugador ? "Jugador" : "IA");
+        lblResultado.setVisible(false);
+
+    } catch (IOException | ClassNotFoundException e) {
+        e.printStackTrace();
+        lblResultado.setText("Error al cargar.");
+        lblResultado.setVisible(true);
+    }
+    }
+    @FXML
+    private void GuardarJuego() {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("partida.dat"))) {
+        EstadoPartida estado = new EstadoPartida(tablero, turnoActual, simboloJugador, quienInicia, contraIA);
+        oos.writeObject(estado);
+
+        lblResultado.setText("Partida guardada.");
+        lblResultado.setVisible(true);
+    } catch (IOException e) {
+        lblResultado.setText("Error al guardar.");
+        lblResultado.setVisible(true);
+    }
+    }
+    private void actualizarBotonesTablero() {
+    Button[][] botones = {
+        {btn00, btn01, btn02},
+        {btn10, btn11, btn12},
+        {btn20, btn21, btn22}
+    };
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            char simbolo = tablero.getSimbolo(i, j);
+            botones[i][j].setText(simbolo == ' ' ? "" : String.valueOf(simbolo));
+        }
+    }
+    }
+        
+        
+        
 }
+    
