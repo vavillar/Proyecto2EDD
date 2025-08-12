@@ -4,7 +4,7 @@
  */
 package ec.edu.espol.proyecto2tresenraya.controllers;
 
-import ec.edu.espol.proyecto2tresenraya.ia.MinMax;
+import ec.edu.espol.proyecto2tresenraya.ia.MiniMax;
 import ec.edu.espol.proyecto2tresenraya.modelo.EstadoPartida;
 import ec.edu.espol.proyecto2tresenraya.modelo.SesionJuego;
 import ec.edu.espol.proyecto2tresenraya.modelo.Tablero;
@@ -183,7 +183,7 @@ public class PantallaJuegoController implements Initializable {
     
     private void moverIA() {
         if (!hayGanador() && !tablero.estaCompleto()) {
-            int[] mejorMovimiento = MinMax.obtenerMejorMovimiento(tablero, simboloIA, simboloJugador);
+            int[] mejorMovimiento = MiniMax.obtenerMejorMovimiento(tablero, simboloIA, simboloJugador);
             tablero.colocarFicha(mejorMovimiento[0], mejorMovimiento[1], simboloIA);
 
             Button[][] botones = {
@@ -206,6 +206,19 @@ public class PantallaJuegoController implements Initializable {
         if (ganador != ' ') {
             lblResultado.setVisible(true);
             lblResultado.setText((ganador == simboloJugador ? "Jugador" : "IA") + " ha ganado");
+
+            // Obtener casillas ganadoras y pintarlas
+            int[][] linea = tablero.obtenerLineaGanadora();
+            if (linea != null) {
+                Button[][] botones = {
+                    {btn00, btn01, btn02},
+                    {btn10, btn11, btn12},
+                    {btn20, btn21, btn22}
+                };
+                for (int[] pos : linea) {
+                    botones[pos[0]][pos[1]].setStyle("-fx-background-color: yellow; -fx-font-size: 20px; -fx-font-weight: bold;");
+                }
+            }
             return true;
         }
         if (tablero.estaCompleto()) {
@@ -215,6 +228,7 @@ public class PantallaJuegoController implements Initializable {
         }
         return false;
     }
+
 
     private boolean hayGanador() {
         return tablero.verificarGanador() != ' ' || tablero.estaCompleto();
@@ -231,11 +245,13 @@ public class PantallaJuegoController implements Initializable {
         for (Button[] fila : botones) {
             for (Button b : fila) {
                 b.setText("");
+                b.setStyle(""); // Quitar color y estilos
             }
         }
         iniciarJuego();
         actualizarBotones(false);
     }
+
     
     @FXML
     private void CargarJuego() {
@@ -267,20 +283,17 @@ public class PantallaJuegoController implements Initializable {
     }
     }
     private void actualizarBotonesTablero() {
-    Button[][] botones = {
-        {btn00, btn01, btn02},
-        {btn10, btn11, btn12},
-        {btn20, btn21, btn22}
-    };
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
-            char simbolo = tablero.getSimbolo(i, j);
-            botones[i][j].setText(simbolo == ' ' ? "" : String.valueOf(simbolo));
+        Button[][] botones = {
+            {btn00, btn01, btn02},
+            {btn10, btn11, btn12},
+            {btn20, btn21, btn22}
+        };
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                char simbolo = tablero.getSimbolo(i, j);
+                botones[i][j].setText(simbolo == ' ' ? "" : String.valueOf(simbolo));
+            }
         }
     }
-    }
-        
-        
-        
+               
 }
-    

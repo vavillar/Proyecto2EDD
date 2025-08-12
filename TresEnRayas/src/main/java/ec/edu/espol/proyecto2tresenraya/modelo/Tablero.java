@@ -87,6 +87,30 @@ public class Tablero {
         }
     }
 
+    public int[][] obtenerLineaGanadora() {
+        // Revisar filas
+        for (int i = 0; i < 3; i++) {
+            if (celdas[i][0] != ' ' && celdas[i][0] == celdas[i][1] && celdas[i][1] == celdas[i][2]) {
+                return new int[][] {{i,0}, {i,1}, {i,2}};
+            }
+        }
+        // Revisar columnas
+        for (int j = 0; j < 3; j++) {
+            if (celdas[0][j] != ' ' && celdas[0][j] == celdas[1][j] && celdas[1][j] == celdas[2][j]) {
+                return new int[][] {{0,j}, {1,j}, {2,j}};
+            }
+        }
+        // Revisar diagonales
+        if (celdas[0][0] != ' ' && celdas[0][0] == celdas[1][1] && celdas[1][1] == celdas[2][2]) {
+            return new int[][] {{0,0}, {1,1}, {2,2}};
+        }
+        if (celdas[0][2] != ' ' && celdas[0][2] == celdas[1][1] && celdas[1][1] == celdas[2][0]) {
+            return new int[][] {{0,2}, {1,1}, {2,0}};
+        }
+        // No hay línea ganadora
+        return null;
+    }
+
     public char[][] getCeldas() {
         return celdas;
     }

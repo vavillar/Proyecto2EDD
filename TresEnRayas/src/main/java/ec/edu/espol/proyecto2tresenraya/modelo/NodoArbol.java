@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package ec.edu.espol.proyecto2tresenraya.modelo;
 
 /**
@@ -62,6 +58,9 @@ public class NodoArbol {
 
     // Generar hijos
     public void generarHijos(char fichaIA, char fichaHumano) {
+        // Evitar regenerar hijos si ya existen (previene duplicaciones)
+        if (!hijos.estaVacia()) return;
+
         if (estado.verificarGanador() != ' ' || estado.estaCompleto()) return;
 
         for (int i = 0; i < 3; i++) {
@@ -78,4 +77,5 @@ public class NodoArbol {
             }
         }
     }
+
 }
